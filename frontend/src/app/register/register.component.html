@@ -1,7 +1,7 @@
 
 <main
   class="mx-auto flex min-h-screen w-full items-center justify-center bg-neutral text-white">
-   <form [formGroup]="registerForm" class="flex w-[20rem] flex-col space-y-10">
+   <form [formGroup]="registerForm"  class="flex w-[20rem] flex-col space-y-10">
     <div class="text-center text-4xl font-medium">Log In</div>
 
       <div
@@ -11,7 +11,7 @@
         placeholder="Firstname"
         class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"/>
         <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
-            <div *ngIf="f['firstName'].errors['required']">Firstname is required</div>
+            <div *ngIf="f['firstName'].errors['required']" class="bg-error">Firstname is required</div>
        </div>
     </div>
 
@@ -22,7 +22,7 @@
       placeholder="Lastname"
       class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"/>
       <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
-        <div *ngIf="f['lastName'].errors['required']">LastName is required</div>
+        <div *ngIf="f['lastName'].errors['required']" class="bg-error">Lastname is required</div>
    </div>
 
   </div>
@@ -34,7 +34,7 @@
     placeholder="Email"
     class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"/>
     <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-        <div *ngIf="f['email'].errors['required']">Email is required</div>
+        <div *ngIf="f['email'].errors['required']" class="bg-error">Email is required</div>
    </div>
 </div>
 
@@ -45,7 +45,7 @@ class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-wit
   placeholder="Location"
   class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"/>
   <div *ngIf="submitted && f['location'].errors" class="invalid-feedback">
-    <div *ngIf="f['location'].errors['required']">Location is required</div>
+    <div *ngIf="f['location'].errors['required']" class="bg-error">Location is required</div>
 </div>
 
 
@@ -53,12 +53,12 @@ class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-wit
 
     <div
       class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
-      <input ormControlName="password" type="password" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }"
+      <input formControlName="password" type="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
         type="password"
         placeholder="Password"
         class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"/>
         <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-            <div *ngIf="f['password'].errors['required']">Password is required</div>
+            <div *ngIf="f['password'].errors['required']"class="bg-error">Password is required</div>
        </div>
     </div>
 

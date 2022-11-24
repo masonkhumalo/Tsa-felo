@@ -12,18 +12,18 @@ class="mx-auto flex min-h-screen w-full items-center justify-center bg-neutral t
     placeholder="Email"
     class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"/>
     <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-        <div *ngIf="f['email'].errors['required']">Email is required</div>
+        <div *ngIf="f['email'].errors['required']" class="bg-error">Email is required</div>
    </div>
 </div>
 
 <div
       class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
-      <input ormControlName="password" type="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+      <input formControlName="password" type="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
         type="password"
         placeholder="Password"
         class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"/>
         <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-            <div *ngIf="f['password'].errors['required']">Password is required</div>
+            <div *ngIf="f['password'].errors['required']" class="bg-error">Password is required</div>
        </div>
     </div>
 
