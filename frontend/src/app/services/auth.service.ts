@@ -22,7 +22,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   createUser(body:any){
-    return this.http.post(this.baseUrl + "/users",body)
+    return this.http.post(`${this.baseUrl}/users`,body)
   }
 
 }

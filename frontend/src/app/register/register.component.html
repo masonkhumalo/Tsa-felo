@@ -2,27 +2,27 @@
 <main
   class="mx-auto flex min-h-screen w-full items-center justify-center bg-neutral text-white">
    <form [formGroup]="registerForm"  class="flex w-[20rem] flex-col space-y-10">
-    <div class="text-center text-4xl font-medium">Log In</div>
+    <div class="text-center text-4xl font-medium">Register</div>
 
       <div
       class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
-      <input formControlName="firstName" type="text" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }"
+      <input formControlName="firstname" type="text" [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }"
         type="text"
         placeholder="Firstname"
         class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"/>
-        <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
-            <div *ngIf="f['firstName'].errors['required']" class="bg-error">Firstname is required</div>
+        <div *ngIf="submitted && f['firstname'].errors" class="invalid-feedback">
+            <div *ngIf="f['firstname'].errors['required']" class="bg-error">Firstname is required</div>
        </div>
     </div>
 
     <div
     class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
-    <input formControlName="lastName" type="text" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }"
+    <input formControlName="lastname" type="text" [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }"
       type="text"
       placeholder="Lastname"
       class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"/>
-      <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
-        <div *ngIf="f['lastName'].errors['required']" class="bg-error">Lastname is required</div>
+      <div *ngIf="submitted && f['lastname'].errors" class="invalid-feedback">
+        <div *ngIf="f['lastname'].errors['required']" class="bg-error">lastname is required</div>
    </div>
 
   </div>

@@ -2,7 +2,7 @@ const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'register',
+  database: 'Tsafelo',
   password: '12345',
   port: 5432,
 })
@@ -29,9 +29,9 @@ const getUsers = (request, response) => {
   }
 
   const createUser = (request, response) => {
-    const { firstname, lastname ,email,password } = request.body
+    const { firstname, lastname ,location ,email,password } = request.body
   
-    pool.query('INSERT INTO users (firstname, lastname ,email,password) VALUES ($1, $2 ,$3 ,$4) RETURNING *', [firstname, lastname ,email,password], (error, results) => {
+    pool.query('INSERT INTO users (firstname, lastname ,location ,email,password) VALUES ($1, $2 ,$3 ,$4 ,$5) RETURNING *', [firstname, lastname ,location ,email,password], (error, results) => {
       if (error) {
         throw error
       }
@@ -41,11 +41,11 @@ const getUsers = (request, response) => {
 
   const updateUser = (request, response) => {
     const id = parseInt(request.params.id)
-    const { firstname, lastname ,email,password} = request.body
+    const { firstname, lastname ,location ,email,password} = request.body
   
     pool.query(
-      'UPDATE public.users SET firstname=$1, lastname=$2, email=$3, password=$4 WHERE id = $5',
-      [firstname, lastname ,email,password, id],
+      'UPDATE public.users SET firstname=$1, lastname=$2, location=$3, email=$4, password=$5 WHERE id = $6',
+      [firstname, lastname ,location ,email,password, id],
       (error, results) => {
         if (error) {
           throw error

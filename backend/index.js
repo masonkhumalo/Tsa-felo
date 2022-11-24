@@ -4,6 +4,10 @@ const app = express()
 const db = require('./queries')
 const port = 3000
 
+var cors = require('cors')
+
+app.use(cors())
+
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({

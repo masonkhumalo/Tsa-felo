@@ -10,8 +10,8 @@ import { AuthService } from '../services/auth.service';
 export class RegisterComponent implements OnInit {
 
   registerForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
+    firstname: new FormControl(''),
+    lastname: new FormControl(''),
     email: new FormControl(''),
     location: new FormControl(''),
     password: new FormControl('')
@@ -26,8 +26,8 @@ export class RegisterComponent implements OnInit {
    myForm()
    {
    this.registerForm = this.fb.group ({
-      firstName: ['',[Validators.required]],
-      lastName: ['',[Validators.required]],
+      firstname: ['',[Validators.required]],
+      lastname: ['',[Validators.required]],
       email: ['',[Validators.required,Validators.email ]],
       location: ['',[Validators.required]],
       password: ['',[Validators.required]]
@@ -44,8 +44,8 @@ export class RegisterComponent implements OnInit {
     this.submitted = true; 
 
     let usersDetails = {
-      firstName: this.registerForm.value.firstName,
-      lastName: this.registerForm.value.lastName,
+      firstname: this.registerForm.value.firstname,
+      lastname: this.registerForm.value.lastname,
       email: this.registerForm.value.email,
       location: this.registerForm.value.location,
       password: this.registerForm.value.password 
