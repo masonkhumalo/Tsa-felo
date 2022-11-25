@@ -1,9 +1,11 @@
+const bcrypt=require("bcryptjs")
+const jwt=require("jsonwebtoken")
 const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'Tsafelo',
-  password: '12345',
+  password: 'Letsdoit!',
   port: 5432,
 })
 
@@ -66,10 +68,47 @@ const getUsers = (request, response) => {
     })
   }
 
+  const login =  async (request,response)=>{
+    const {email,password} =  request.body;
+    pool.query('SELECT * FROM users WHERE email = $1 AND password = $2',[email,password],(error,results)=>{
+        if(error){
+            response.status(400).json({message: "Error communicating with database"})
+        }else{
+            if(results.rowCount==0){
+                response.status(400).json({message: "User does not exist, Please register"})
+            }else{
+                bcrypt.compare(password,results.rows[0].password,(error,result)=>{
+                   if(password != results.rows[0].password ){
+                    response.status(400).json({message: "Invalid Credentials, Please try again"});
+                   } else{
+                    const token = jwt.sign({
+                        id: results.rows[0].id,
+                        firstname: results.rows[0].firstname,
+                        lastname: results.rows[0].lastname,
+                        location: results.rows[0].location,
+                        email: results.rows[0].email,
+                        password: results.rows[0].password
+                    },
+                    "hscjhgkfhdagfh",{
+                        algorithm: 'HS256',
+                        expiresIn: 120
+                    });
+                    response.status(200).json({message: "Welcome! user : "+results.rows[0].id +" "+results.rows[0].lastname+ " "+results.rows[0].name
+                     ,token: token,}); 
+                }
+                 })
+            }
+        }
+    })
+    
+}
+
+
   module.exports = {
     getUsers,
     getUserById,
     createUser,
     updateUser,
     deleteUser,
+    login
   }
