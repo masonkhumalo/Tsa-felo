@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -19,7 +21,7 @@ export class RegisterComponent implements OnInit {
 
   submitted = false;
 
-  constructor(private fb :FormBuilder, private authservice :AuthService) {
+  constructor(private fb :FormBuilder, private authservice :AuthService,private router: Router) {
     this.myForm();
    }
 
@@ -53,9 +55,18 @@ export class RegisterComponent implements OnInit {
 
     console.log(usersDetails)
 
-    this.authservice.createUser(usersDetails).subscribe((res)=>{
-      console.log("success!")
-     })
+    if(this.registerForm.value.firstname != '' && this.registerForm.value.firstname != null)
+    {
+      this.authservice.createUser(usersDetails).subscribe((res:any)=>{
+        console.log(res.message)
+        this.router.navigateByUrl('/login')
+        
+       },(err:HttpErrorResponse)=>{
+        console.log(err);
+  
+       })
+    }
+    
   
   }
 

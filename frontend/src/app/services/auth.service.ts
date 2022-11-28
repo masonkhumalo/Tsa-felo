@@ -21,8 +21,12 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+
   createUser(body:any){
     return this.http.post(`${this.baseUrl}/users`,body)
   }
 
+  login(loginDetails:any){
+    return this.http.post(`${this.baseUrl}/login`,loginDetails)
+  }
 }
