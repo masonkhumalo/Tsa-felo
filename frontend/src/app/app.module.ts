@@ -9,14 +9,19 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { NgToastModule } from 'ng-angular-popup' 
+import { GuardService } from './services/guard.service';
+import { UserService } from './services/user.service';
+
 
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     StarterComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -24,10 +29,11 @@ import { NgToastModule } from 'ng-angular-popup'
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgToastModule
+    NgToastModule,
+   
 
   ],
-  providers: [],
+  providers: [GuardService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

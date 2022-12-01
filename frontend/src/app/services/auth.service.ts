@@ -17,9 +17,13 @@ const httpOptions = {
 })
 export class AuthService {
 
+  
+
   private baseUrl = "http://localhost:3000"
 
   constructor(private http: HttpClient) { }
+
+ 
 
 
   createUser(body:any){
@@ -29,4 +33,7 @@ export class AuthService {
   login(loginDetails:any){
     return this.http.post(`${this.baseUrl}/login`,loginDetails)
   }
+
+   
+
 }

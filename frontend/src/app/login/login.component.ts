@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { NgToastService } from 'ng-angular-popup';
 import jwt_decode from 'jwt-decode';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -23,8 +24,11 @@ export class LoginComponent implements OnInit {
   log: any;
  
 
-  constructor(private authservice : AuthService, private router : Router,
-  private toastservice : NgToastService, private formbuilder : FormBuilder) { 
+  constructor(private authservice : AuthService,
+     private router : Router,
+     private userService : UserService,
+  private toastservice : NgToastService,
+   private formbuilder : FormBuilder) { 
     this.myForm();
   }
 
@@ -43,6 +47,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
   login(){
+    this.userService.login();
     this.submitted = true;
     let loginDetails = {
       email:this.loginForm.value.email,
@@ -55,7 +60,7 @@ export class LoginComponent implements OnInit {
          this.decoded = jwt_decode(data.token)
           console.log(this.decoded)
          this.toastservice.success({detail:'Success', summary:'Successfully login!', sticky:false,position:'tr', duration:6000})
-         this.router.navigate(['/starter'])
+        
         sessionStorage.setItem('logginToken', data.token)
        sessionStorage.setItem('loggedEmail', this.decoded.email);
          this.submitted = false ;

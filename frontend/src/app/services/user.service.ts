@@ -1,9 +1,17 @@
-import { Injectable } from '@angular/core';
+export class UserService{
 
-@Injectable({
-  providedIn: 'root'
-})
-export class UserService {
+  loggedIn : boolean = false
 
-  constructor() { }
+  login(){
+
+    this.loggedIn = true
+  }
+
+  // logout(){
+  //   this.loggedIn = false
+  // }
+
+  IsAuthenticated(){
+   return this.loggedIn ;
+  }
 }
