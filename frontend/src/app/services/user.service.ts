@@ -12,6 +12,15 @@ export class UserService{
   // }
 
   IsAuthenticated(){
-   return this.loggedIn ;
+
+    if(sessionStorage.getItem('logginToken') != null)
+    {
+      return true;
+    }
+    else{
+      return false;
+
+    }
+   //return this.loggedIn ;
   }
 }

@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
          this.decoded = jwt_decode(data.token)
           console.log(this.decoded)
          this.toastservice.success({detail:'Success', summary:'Successfully login!', sticky:false,position:'tr', duration:6000})
-        
+        this.router.navigate(['starter'])
         sessionStorage.setItem('logginToken', data.token)
        sessionStorage.setItem('loggedEmail', this.decoded.email);
          this.submitted = false ;

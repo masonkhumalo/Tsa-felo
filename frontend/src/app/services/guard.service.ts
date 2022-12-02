@@ -16,7 +16,7 @@ export class GuardService implements CanActivate{
     if(this.userService.IsAuthenticated()) {
       return true
     }else{
-      this.router.navigate(['/starter'])
+      this.router.navigate(['/login'])
       return false
     }
   }
