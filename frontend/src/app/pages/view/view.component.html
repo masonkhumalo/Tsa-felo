@@ -18,7 +18,7 @@
                     <div class="sm:col-gap-5 sm:grid sm:grid-cols-2">
                       <div class="pr-8 sm:pr-5">
                         <p class="text-base font-semibold text-gray-900">{{item.title}}</p>
-                        <p class="mx-0 mt-1 mb-0 text-sm text-gray-400">{{item.grams}}</p>
+                        <p class="mx-0 mt-1 mb-0 text-sm text-gray-400">{{item.grams}}g</p>
                       </div>
   
                       <div class="mt-4 flex items-end justify-between sm:mt-0 sm:items-start sm:justify-end">
@@ -28,9 +28,9 @@
                           <div class="mx-auto flex h-8 items-stretch text-gray-600">
                             
                             <button  class="flex items-center justify-center rounded-l-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">-</button>
-                            <button (click)="increment()" class="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">+</button>
-                            <div class="flex w-full items-center justify-center bg-gray-100 px-4 text-xs uppercase transition">{{counter}}</div>
                             
+                            <div class="flex w-full items-center justify-center bg-gray-100 px-4 text-xs uppercase transition">{{counter}}</div>
+                            <button (click)="increment()" class="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">+</button>
                           </div>
                         </div>
                       </div>
@@ -46,21 +46,21 @@
               <div class="flex items-center justify-between">
                 <p class="text-sm text-gray-400">Discription <br>
                   <a>
-                    As cannabis breeding and cultivation have flourished, different varieties of weed have emerged. There are whole families of strains associated with a particular flavour or sensation. Kush strains tend to bring a very powerful high; Haze strains are mouthwatering and deliver an uplifting buzz; Diesel strains... actually do smell like diesel.
+                      {{item.description}}
                   </a>
                  </p>
               </div>
 
             </div>
             <div class="mt-6 flex items-center justify-between">
-              <p class="text-sm font-medium text-gray-900">Delivery Available around Braamfontein nor nearer</p>
+              <p class="text-sm font-medium text-gray-900">Delivery Available soon</p>
               
             </div>
             <br>
             <div class="relative">
             
               
-              <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
+              <!-- <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
                 <div class="check: absolute right-8 top-2/2 h-3 w-3">
                   <label class="cursor-pointer label">
                     <svg class="h-10 w-8 text-green-300"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="5" cy="18" r="3" />  <circle cx="19" cy="18" r="3" />  <polyline points="12 19 12 15 9 12 14 8 16 11 19 11" />  <circle cx="17" cy="5" r="1" /></svg>
@@ -79,7 +79,7 @@
                     </div>
                   </form>
                 </div>
-              </label>
+              </label> -->
             </div>
   
             <div class="mt-6 text-center">

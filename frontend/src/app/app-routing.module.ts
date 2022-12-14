@@ -12,9 +12,9 @@ const routes: Routes = [
   {path : '', component : HomeComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'starter', component: StarterComponent,  },
-  { path: 'view', component: ViewComponent },
-  { path: 'order', component: OrderComponent }
+  { path: 'starter', component: StarterComponent, canActivate:[GuardService] },
+  { path: 'view', component: ViewComponent,canActivate:[GuardService] },
+  { path: 'order', component: OrderComponent,canActivate:[GuardService] }
 ];
 
 @NgModule({
