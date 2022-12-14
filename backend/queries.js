@@ -100,7 +100,17 @@ const getUsers = (request, response) => {
             }
         }
     })
+
     
+    
+}
+const getProducts = (request, response) => {
+  pool.query('SELECT * FROM public.products ORDER BY id asc  ', (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
 }
 
 
@@ -110,5 +120,7 @@ const getUsers = (request, response) => {
     createUser,
     updateUser,
     deleteUser,
-    login
+    login,
+    getProducts
+
   }
