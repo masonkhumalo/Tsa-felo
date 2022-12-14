@@ -34,6 +34,8 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/login`,loginDetails)
   }
 
-   
+  getProduct(){
+    return this.http.get(this.baseUrl + '/getProducts')
+  }
 
 }

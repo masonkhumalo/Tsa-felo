@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderComponent implements OnInit {
 
+  quantity:any = localStorage.getItem("Quantity"); 
+  price:any = localStorage.getItem("Price"); 
+  grams : any = localStorage.getItem("Grams")
+
   constructor() { }
 
   ngOnInit(): void {
